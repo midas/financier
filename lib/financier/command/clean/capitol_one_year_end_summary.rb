@@ -43,11 +43,18 @@ module Financier
             begin
               match = REGEX.match( line )
               amount = clean_currency( match[3] )
-              lines << ["#{config.year}/#{match[1]}", match[2], amount, credit_debit_from_amount( amount )].flatten
+              lines << [date_from_string( match[1] ).strftime( config.date_format ),
+                        match[2],
+                        amount,
+                        credit_debit_from_amount( amount )].flatten
             rescue
               add_in_error_line( line )
             end
           end
+        end
+
+        def date_from_string( str )
+          Date.parse( "#{config.year}/#{str}" )
         end
 
         def sort_lines

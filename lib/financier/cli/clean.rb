@@ -16,6 +16,7 @@ module Financier
 
         The flat file is created by manually cutting a pasting the tabular sections of data into a text file.
       LONGDESC
+      option :date_format, type: :string, desc: "The date format to output", aliases: '-d', default: "%Y-%m-%d"
       option :year, type: :string, desc: "The year to process the file as", aliases: '-y', default: Time.now.year.to_s
       def capitol_one_year_end_summary( filepath )
         execute Financier::Command::Clean::CapitolOneYearEndSumary, filepath: filepath
