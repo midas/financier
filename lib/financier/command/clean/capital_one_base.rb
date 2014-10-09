@@ -13,7 +13,7 @@ module Financier
           confirm "Processing lines from '#{config.filepath}' as year #{config.year}" do
             process_lines
             if in_error_lines.size > 0
-              raise Financier::ConfirmationError.new( "Lines failed to parse", error_finish_lambda )
+              raise Acclimate::ConfirmationError.new( "Lines failed to parse", finish_proc: error_finish_lambda )
             end
           end
 
@@ -39,7 +39,6 @@ module Financier
                         amount,
                         credit_debit_from_amount( amount )].flatten
             rescue
-              binding.pry
               add_in_error_line( original_line )
             end
           end
@@ -109,7 +108,7 @@ module Financier
 
         def raise_if_input_and_output_filepaths_collide!
           return unless filepath == out_filepath
-          raise Financier::Error.new( "Input file and output file path are the same: #{filepath.expand_path}" )
+          raise Acclimate::Error.new( "Input file and output file path are the same: #{filepath.expand_path}" )
         end
 
         def add_in_error_line( line )

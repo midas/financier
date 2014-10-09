@@ -2,7 +2,7 @@ module Financier
   class Cli
     class Clean < Thor
 
-      include CliHelper
+      include Acclimate::CliHelper
 
       def self.banner( command, namespace=nil, subcommand=false )
         return "#{basename} clean help [SUBCOMMAND]" if command.name == 'help'
