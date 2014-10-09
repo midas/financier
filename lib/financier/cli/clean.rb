@@ -17,17 +17,20 @@ module Financier
         option :year, type: :numeric, desc: "The year to process the file as", aliases: '-y', default: Time.now.year
       end
 
-      desc "clean capitol-one-year-end-summary", "Cleans a text file created from Capitol One year end summary"
+      desc "clean capital-one-year-end-summary", "Cleans a text file created from Capital One year end summary"
       long_desc <<-LONGDESC
         Cleans a text file created from Captiol One's Year End Summary converting it into a CSV ready to import
         into other applications.
 
-        The flat file is created by manually cutting a pasting the tabular sections of data into a text file.
+        The flat file is created by manually cutting a pasting the tabular sections of data into a text file. The
+        eventual line looks something like:
+
+        10/11 THE NAILS SPA CO HOUSTON TX $36.00
       LONGDESC
       date_format_option
       year_option
-      def capitol_one_year_end_summary( filepath )
-        execute Financier::Command::Clean::CapitolOneYearEndSumary, filepath: filepath
+      def capital_one_year_end_summary( filepath )
+        execute Financier::Command::Clean::CapitalOneYearEndSumary, filepath: filepath
       end
 
       desc "clean capital-one-statement", "Cleans a text file created from Capital One monthly statment"

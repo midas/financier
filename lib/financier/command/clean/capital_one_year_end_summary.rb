@@ -3,12 +3,12 @@ require 'csv'
 module Financier
   module Command
     module Clean
-      class CapitolOneYearEndSumary < CapitalOneBase
+      class CapitalOneYearEndSumary < CapitalOneBase
 
         REGEX = /^(?<month>\d+)\/(?<day>\d+)\ (?<payee>.*)\ (?<amount>-?\$[\d,]*\.\d*)$/
 
         def execute
-          header "Clean Capitol One Year End Sumary"
+          header "Clean Capital One Year End Sumary"
           raise_if_errors!
 
           process_file
