@@ -19,10 +19,10 @@ module Financier
 
       desc "clean capital-one-year-end-summary", "Cleans a text file created from Capital One year end summary"
       long_desc <<-LONGDESC
-        Cleans a text file created from Captiol One's Year End Summary converting it into a CSV ready to import
+        Cleans a text file created from Capital One's Year End Summary converting it into a CSV ready to import
         into other applications.
 
-        The flat file is created by manually cutting a pasting the tabular sections of data into a text file. The
+        The flat file is created by manually cutting and pasting the tabular sections of data into a text file. The
         eventual line looks something like:
 
         10/11 THE NAILS SPA CO HOUSTON TX $36.00
@@ -35,7 +35,7 @@ module Financier
 
       desc "clean capital-one-statement", "Cleans a text file created from Capital One monthly statment"
       long_desc <<-LONGDESC
-        Cleans a text file created from Captial One's monthly statement converting it into a CSV ready to import
+        Cleans a text file created from Capital One's monthly statement converting it into a CSV ready to import
         into other applications.
 
         The flat file is created by using docsplit to extract text from PDF statement and then manually formatting some
