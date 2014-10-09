@@ -5,7 +5,7 @@ module Financier
     module Clean
       class CapitalOneBase < Command::Base
 
-        REGEX = /^\d+\ (?<day>\d{2})\ (?<month>\w{3})\ (?<payee>.+)\s+\$(?<amount>.+)$/
+        REGEX = /^(?<month>\d+)\/(?<day>\d+)\ (?<payee>.*)\ (?<amount>-?\$[\d,]*\.\d*)$/i
 
       protected
 
