@@ -4,7 +4,6 @@ module Financier
     autoload :Clean,   'financier/cli/clean'
     autoload :Convert, 'financier/cli/convert'
 
-    include Thor::Actions
     include Acclimate::CliHelper
 
     desc 'clean SUBCOMMAND', "Cleans financial flat-files making CSVs, etc"
