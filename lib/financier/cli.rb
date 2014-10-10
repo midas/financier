@@ -1,13 +1,17 @@
 module Financier
   class Cli < Thor
 
-    autoload :Clean, 'financier/cli/clean'
+    autoload :Clean,   'financier/cli/clean'
+    autoload :Convert, 'financier/cli/convert'
 
-    include Acclimate::CliHelper
     include Thor::Actions
+    include Acclimate::CliHelper
 
     desc 'clean SUBCOMMAND', "Cleans financial flat-files making CSVs, etc"
     subcommand "clean", Financier::Cli::Clean
+
+    desc 'convert SUBCOMMAND', "Convert financial files to other file formats"
+    subcommand "convert", Financier::Cli::Convert
 
     #desc "console", "Load a console with seeding assets available"
     #long_desc <<-LONGDESC
