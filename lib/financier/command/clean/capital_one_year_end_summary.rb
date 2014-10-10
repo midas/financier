@@ -13,7 +13,7 @@ module Financier
 
           process_file
 
-          say "Cleaned file writted to: #{out_filepath}", :green
+          say "Cleaned file written to: #{out_filepath}", :green
         end
 
       end
