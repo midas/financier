@@ -5,6 +5,8 @@ module Financier
     module Clean
       class CapitalOneBase < Command::Base
 
+        include Financier::IoHelper
+
         REGEX = /^(?<month>\d+)\/(?<day>\d+)\ (?<payee>.*)\ (?<amount>-?\$[\d,]*\.\d*)$/i
 
       protected
@@ -22,7 +24,7 @@ module Financier
           end
 
           confirm "Writing CSV file" do
-            write_csv_file
+            write_array_lines_to_csv_file( out_filepath, lines.unshift( csv_header ))
           end
         end
 
@@ -60,16 +62,6 @@ module Financier
 
         def sort_lines
           lines.sort! { |a,b| a.first <=> b.first }
-        end
-
-        def write_csv_file
-          CSV.open( out_filepath, 'w' ) do |csv|
-            csv << csv_header
-
-            lines.each do |line|
-              csv << line
-            end
-          end
         end
 
         def csv_header
@@ -121,15 +113,6 @@ module Financier
 
         def in_error_lines
           @in_error_lines ||= []
-        end
-
-        def filepath
-          @filepath ||= Pathname.new( config.filepath )
-        end
-
-        def out_filepath
-          @out_filepath = Pathname.new( File.join( File.dirname( filepath ) ,
-                                                   "#{File.basename( filepath.expand_path, '.*' )}.csv" ))
         end
 
         def straddle_years?
