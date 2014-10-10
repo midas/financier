@@ -6,7 +6,7 @@ module Financier
 
     include Acclimate::CliHelper
 
-    desc 'clean SUBCOMMAND', "Cleans financial flat-files making CSVs, etc"
+    desc 'clean SUBCOMMAND', "Clean financial flat-files making CSVs, etc"
     subcommand "clean", Financier::Cli::Clean
 
     desc 'convert SUBCOMMAND', "Convert financial files to other file formats"
