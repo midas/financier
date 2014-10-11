@@ -1,6 +1,13 @@
 # Financier
 
-TODO: Write a gem description
+A CLI set of tools for working with financial tools facilitating analysis and tax preparation.  Current toolset 
+provides utilities to work with:
+
+Capitol One Visa statements
+iBank
+QIFs
+Mint.com
+
 
 ## Installation
 
@@ -16,14 +23,6 @@ Or install it yourself as:
 
     $ gem install financier
 
+
 ## Usage
 
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( http://github.com/<my-github-username>/financier/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
