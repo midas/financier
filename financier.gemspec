@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
 
   spec.add_dependency "acclimate"
+  spec.add_dependency "activerecord"
   spec.add_dependency "hashie"
   spec.add_dependency "qiflib"
   spec.add_dependency "rainbow"

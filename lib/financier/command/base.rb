@@ -8,6 +8,10 @@ module Financier
         Financier::Configuration
       end
 
+      def db_connect!
+        Financier::Database.connect( config.database )
+      end
+
     end
   end
 end
